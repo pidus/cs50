@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 int main(int argc, string argv[])
-{
+{lengtlengt
 // check
     if (argc != 2)
     {
