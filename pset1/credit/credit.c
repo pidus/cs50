@@ -85,7 +85,7 @@ long get_input(void)
     {
         num = get_long("Number: ");
     }
-    while (num < 0 || num > 9999999999999999);
+    while (num < 0 || num > 9999 9999 9999 9999);
     return num;
 }
 
