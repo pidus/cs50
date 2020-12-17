@@ -9,30 +9,27 @@ def get_valid_input():
 
 card = str(get_valid_input())
 length = len(card)
-# print(length) # for testing
+
 #Luhn’s Algorithm
 luhn = 0
 #every other digits starting w/ 2nd to last
 for a in range(length-2, -1, -2):
-    # print(a)
-    if len(card[a]*2) == 2:
-        luhn += ((int(card[a]*2)//10) + (int(card[a]*2)%10))
+    tmp = int(card[a])*2
+    if tmp < 10:
+        luhn += tmp
     else:
-        luhn += int(card[a])*2
-print(luhn)
-# right = 13
-#rest of the digits
+        luhn += tmp-9
+# rest of the digits
 for b in range(length-1, -1, -2):
     luhn += int(card[b])
-print(luhn)
 remainder = luhn%10
-print(remainder)
+
 if remainder == 0:
-    if card[0] == 3 and (card[1] == 4 or card[1] == 7):
+    if length == 15 and int(card[0]) == 3 and (int(card[1]) == 4 or int(card[1])) == 7:
         print("AMEX")
-    elif card[0] == 5 and (card[1] == 1 or card[1] == 2 or card[1] == 3 or card[1] == 4 or card[1] == 5):
+    elif length == 16 and int(card[0]) == 5 and (int(card[1]) == 1 or int(card[1]) == 2 or int(card[1]) == 3 or int(card[1]) == 4 or int(card[1]) == 5):
         print("MASTERCARD")
-    elif card[0] == 4:
+    elif (length == 13 or length == 16) and int(card[0]) == 4:
         print("VISA")
 else:
     print("INVALID")
